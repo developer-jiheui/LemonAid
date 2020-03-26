@@ -1,0 +1,105 @@
+<resources>
+
+    <!--Main-->
+    <string name="app_name">LemonAidApp</string>
+    <string name="mainTitle">LemonAid</string>
+    <string name="logoDescription">LemonAid Logo</string>
+    <string name="txtProfileDsc">Find Profile by Username</string>
+    <string name="txtInfo">Signed in as</string>
+
+    <string-array name="DoctorList">
+        <item>Doctor A</item>
+        <item>Doctor B</item>
+        <item>Doctor C</item>
+    </string-array>
+    <string name="pNumformat">XXX-XXX-XXXX</string>
+    <string name="postalFormat">X1X 1X1</string>
+    <string name="txtAmountDue">Amount Due: \n $</string>
+    <string name="btnAuthPay">Authorize Payment</string>
+    <string name="txtLeaveMessage">Leave message or complaint for the doctor below:</string>
+    <string name="complaintHint">Input your message/complaint</string>
+    <string name="btnSendMessage">Send Message</string>
+    <string name="txtMessageNote">Please note for users with no MSP online consultation is $xx.xx</string>
+    <string name="txtAddBalance">$xx.xx will be added to your account balance</string>
+    <string name="txtSentMSP">Your Message was successfully sent! \n The doctor will get back to you within 24 hours!</string>
+    <string name="btnReturProf">Return to Profile</string>
+    <string name="txtBalance">New Account Balance is \n $</string>
+    <string name="btnPayNow">Make Payment Now</string>
+    <string name="btnPayLater">Make Payment Later/ \n Return to Profile</string>
+    <string name="txtDoctorName">Doctor\'s Name</string>
+    <string name="txtClinicName">Clinic Name</string>
+    <string name="txtClinicAddress">Street, City ,Province</string>
+    <string name="txtClinicPostCode">Postal Code</string>
+    <string name="txtDoctorCell">Phone Number</string>
+    <string name="txtDoctorEmail">Email</string>
+    <string name="btnBookAppoint">Book Appointment</string>
+    <string name="btnSearch">Return To Search</string>
+    <string name="btnOnlineHelp">Get Online Help</string>
+    <string name="txtSelectDate">Select Date for Appointment</string>
+    <string name="btnDrProfile">Doctor\'s Profile</string>
+    <string name="btnEdit">Edit profile</string>
+    <string name="txtGreeting">Hello, Username</string>
+    <string name="txtPayHistory">Charges History</string>
+    <string name="txtLocation">Use Your Location</string>
+    <string name="txtOR">OR</string>
+    <string name="txtPostalCode">Enter Your Postal Code</string>
+    <string name="etPostalHint">X1X - X1X</string>
+    <string name="txtDrNear">Doctors Nearby:</string>
+    <string name="txtUserId">User ID</string>
+    <string name="txtPw">Password</string>
+    <string name="txtLoginScreen">Login Screen</string>
+    <string name="txtLemonAid">Lemon-Aid</string>
+    <string name="txtMotto">MOTTO</string>
+    <string name="txtFname">First Name</string>
+    <string name="txtLname">Last Name</string>
+    <string name="txtPnum">Phone Number</string>
+    <string name="txtEmail">Email Address</string>
+    <string name="txtMSPnum">MSP number</string>
+    <string name="rdNoMSP">I don\'t have MSP</string>
+    <string name="txtAge">Age</string>
+    <string name="txtPostal">Postal Code</string>
+    <string name="txtHelloAccount"></string>
+    <string name="txtEditProfile">Edit Profile</string>
+    <string name="txtLogOut">Log Out</string>
+    <string name="txtFindDoctor">Find Doctor</string>
+    <string name="txtAcctBalance">Account Balance : </string>
+    <string name="txtPaymentHistory">View Charges History</string>
+    <string name="txtPay">Make Payment</string>
+    <string name="txtCmtHistory">Comment History</string>
+    <string name="txtComment1">Comment 1</string>
+    <string name="txtComment2">Comment 2</string>
+    <string name="txtYourLocation">Use Your Location</string>
+    <string name="txtEnterPostCode">Enter Postal Code</string>
+    <string name="txtOr">or</string>
+    <string name="txtDocNearBy">Doctors nearby : </string>
+    <string name="txtDocList1">Doctor A</string>
+    <string name="txtLogin">Login</string>
+    <string name="txtRegister">Register</string>
+    <string name="txtRegisterAcct">Register Account</string>
+    <string name="txtAccountBalance">$xx.xx</string>
+    <string name="hintID">Enter your username</string>
+    <string name="hintpass">Enter your password</string>
+
+    <!--Activity_5-->
+    <string name="LoggedInAs">Logged In As</string>
+    <string name="username">Username</string>
+    <string name="patient">Patient</string>
+    <string name="doctor">Doctor</string>
+    <string name="cachier">Cachier</string>
+    <string name="admin">Adming</string>
+    <string name="regNUser">Register New User</string>
+    <string name="chAccount">Change Account</string>
+    <string name="appM">App Maintenance</string>
+    <string name="logOut">Log Out</string>
+
+    <!--Activity_7-->
+    <string name="txtUsername">Username</string>
+    <string name="txtFirstName">First Name</string>
+    <string name="txtpassword">Password</string>
+    <string name="txtOfficeId">Office ID</string>
+    <string name="btnRegisterSave">Register/Save Account</string>
+    <string name="txtPhoneNum">Phone Number</string>
+    <!--Activity_8-->
+    <string name="noMsp">"I don't have MSP"</string>
+    <string name="btnRegister">Register Account</string>
+</resources>
