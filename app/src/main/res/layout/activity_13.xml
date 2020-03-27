@@ -32,33 +32,26 @@
 
     <TextView
         android:id="@+id/txtPayHistory"
-        android:layout_width="297dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="156dp"
-        android:layout_marginBottom="41dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/txtPayHistory"
         android:textSize="24sp"
+        android:layout_marginBottom="10dp"
         android:textStyle="bold" />
-
-    <Button
-        android:id="@+id/btnBackProfile"
-        android:layout_width="186dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="124dp"
-        android:layout_marginLeft="124dp"
-        android:layout_marginBottom="76dp"
-        android:text="@string/btnReturProf" />
 
     <TextView
         android:id="@+id/txtPaymentHistory"
-        android:layout_width="299dp"
-        android:layout_height="257dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginLeft="56dp"
-        android:layout_marginEnd="56dp"
-        android:layout_marginRight="56dp"
-        android:layout_marginBottom="192dp" />
+        android:layout_width="match_parent"
+        android:layout_height="300dp" />
+
+    <Button
+        android:id="@+id/btnBackProfile"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="186dp"
+        android:layout_height="47dp"
+        android:textColor="#ffffff"
+        android:background="@drawable/bg_button"
+        android:text="@string/btnReturProf" />
 
 </LinearLayout>
