@@ -42,7 +42,7 @@
     <string name="btnSearch">Return To Search</string>
     <string name="btnOnlineHelp">Get Online Help</string>
     <string name="txtSelectDate">Select Date for Appointment</string>
-    <string name="btnDrProfile">Doctor\'s Profile</string>
+    <string name="btnDrProfile">Return to Doctor\'s Profile</string>
     <string name="btnEdit">Edit profile</string>
     <string name="txtGreeting">Hello, Username</string>
     <string name="txtPayHistory">Charges History</string>
