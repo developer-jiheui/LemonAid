@@ -24,9 +24,9 @@
     <string name="txtAddBalance">$xx.xx will be added to your account balance</string>
     <string name="txtSentMSP">Your Message was successfully sent! \n The doctor will get back to you within 24 hours!</string>
     <string name="btnReturProf">Return to Profile</string>
-    <string name="txtBalance">New Account Balance is \n $</string>
+    <string name="txtBalance">New Account Balance \n:  $XX.XX</string>
     <string name="btnPayNow">Make Payment Now</string>
-    <string name="btnPayLater">Make Payment Later/ \n Return to Profile</string>
+    <string name="btnPayLater">Make Payment Later\n Return to Profile</string>
     <string name="txtDoctorName">Doctor\'s Name</string>
     <string name="txtClinicName">Clinic Name</string>
     <string name="txtClinicAddress">Street, City ,Province</string>

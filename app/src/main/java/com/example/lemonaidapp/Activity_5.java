@@ -24,7 +24,7 @@ public class Activity_5 extends AppCompatActivity {
             username = intent.getStringExtra("Username");
         }
         TextView txtInfo = findViewById(R.id.txtUsernameInfo);
-       //set username at top left of activity_5
+        //set username at top left of activity_5
         txtInfo.setText(username);
 
         Button btnRegNewUser = findViewById(R.id.btnRegNewUser);
@@ -79,7 +79,7 @@ public class Activity_5 extends AppCompatActivity {
         btnChAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            startActivity(new Intent(Activity_5.this, Activity_6.class));
+                startActivity(new Intent(Activity_5.this, Activity_6.class));
             }
         });
 

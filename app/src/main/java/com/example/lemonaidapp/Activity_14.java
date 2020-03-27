@@ -16,7 +16,7 @@ public class Activity_14 extends AppCompatActivity {
         setContentView(R.layout.activity_14);
         dbh = new DatabaseHelper(this);
         Intent i = getIntent();
-       final String email = i.getStringExtra("email");
+        final String email = i.getStringExtra("email");
         TextView amountOwe = findViewById(R.id.txtAmountDue);
         final int amountOwed = Integer.parseInt(dbh.getdataPatient(email,8));
         amountOwe.setText(" Amount Due:\n $" + amountOwed);

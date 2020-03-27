@@ -10,5 +10,6 @@ public class Activity_4 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_4);
+        this.setTitle("Cashier logged in: Payment Reminders");
     }
 }

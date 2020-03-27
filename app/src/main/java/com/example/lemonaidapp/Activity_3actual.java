@@ -3,98 +3,81 @@ package com.example.lemonaidapp;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ListActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
+import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Activity_3actual extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+
+
+
+public class Activity_3actual extends ListActivity {
     DatabaseHelper dbh;
+    ArrayList<String> messageList;
+    String email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_3actual);
-        Intent intent = getIntent();
-        final String email = intent.getStringExtra("email");
-        Button btnEdit = findViewById(R.id.btnEditProfile);
-        Button btnLogOut = findViewById(R.id.btnLogOut);
-        Button btnFindDoc = findViewById(R.id.btnFindDoc);
-        Button btnViewPayment = findViewById(R.id.btnHistory);
-        Button btnMakePayment = findViewById(R.id.btnMakePay);
-        TextView helloName = findViewById(R.id.txtHelloFname);
-        TextView amountOwe = findViewById(R.id.txtAccountBalance);
+        //setContentView(R.layout.activity_main);
+        this.setTitle("Active Messages!");
         dbh = new DatabaseHelper(this);
-        helloName.setText("Hello, " + dbh.getdataPatient(email,1));
-        amountOwe.setText("$" + dbh.getdataPatient(email,8));
+        dbh.addrecordComment("em","email","I am dying","");
+        dbh.addrecordComment("em","email1233","I am dying20","zxzxz");
+        dbh.addrecordComment("em","emaildfd","I am dying30","");
+        Intent i = getIntent();
+        email = i.getStringExtra("email");
+        messageList = dbh.getActiveMessages(email);
 
+        setListAdapter(new ArrayAdapter<String>
+                (this,R.layout.activity_3actual,R.id.message,
+                        messageList));
+    }
 
-        if (dbh.getdataPatient(email,7).equals(true)){
-            AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Activity_3actual.this);
+    public void onListItemClick(ListView l, View view, final int position, long id){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Activity_3actual.this);
+        final TextView message = new TextView(this);
+        message.setText(messageList.get(position));
+        alertDialogBuilder.setCustomTitle(message);
+        final EditText et = new EditText(Activity_3actual.this);
+        et.setHint("Type your Message");
 
+        // set prompts.xml to alertdialog builder
+        alertDialogBuilder.setView(et);
 
-            final EditText et = new EditText(Activity_3actual.this);
-            et.setText("Input New Password!");
-
-            // set prompts.xml to alertdialog builder
-            alertDialogBuilder.setView(et);
-
-            // set dialog message
-            alertDialogBuilder.setCancelable(false).setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int id) {
-                    String password = et.getText().toString();
-                    dbh.updatePassword(email,password);
+        // set dialog message
+        alertDialogBuilder.setCancelable(false).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                if (!et.getText().toString().equals("")){
+                    dbh.updateDoctorReply(email,et.getText().toString());
+                    messageList.remove(position);
                 }
-            });
+                else{
+                    Toast.makeText(Activity_3actual.this,"Please Enter reply!", Toast.LENGTH_LONG).show();
+                }
 
-            // create alert dialog
-            AlertDialog alertDialog = alertDialogBuilder.create();
-            // show it
-            alertDialog.show();
-        }
-
-        btnEdit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Activity_3actual.this,Activity_3.class);
-                i.putExtra("email",email);
-                i.putExtra("password",dbh.getPasswordForLogin(email));
-                startActivity(i);
-            }
-        });
-        btnLogOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Activity_3actual.this, Activity_2.class));
-            }
-        });
-        btnViewPayment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Activity_3actual.this,Activity_13.class);
-                i.putExtra("email",email);
-                startActivity(i);
-            }
-        });
-        btnMakePayment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Activity_3actual.this,Activity_14.class);
-                i.putExtra("email",email);
-                startActivity(i);
-            }
-        });
-        btnFindDoc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(Activity_3actual.this,Activity_10.class);
-                i.putExtra("email",email);
-                startActivity(i);
             }
         });
 
+        // create alert dialog
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        // show it
+        alertDialog.show();
     }
 }

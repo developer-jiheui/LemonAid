@@ -9,8 +9,8 @@
 
         <LinearLayout
             android:id="@+id/linearLayout"
-            android:layout_width="0dp"
-            android:layout_height="150dp"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -18,7 +18,7 @@
 
             <TextView
                 android:id="@+id/txtLemonAid"
-                android:layout_width="220dp"
+                android:layout_width="230dp"
                 android:layout_height="match_parent"
                 android:gravity="bottom|end"
                 android:text="@string/mainTitle"
@@ -44,7 +44,7 @@
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="60dp"
             android:contentDescription="@string/logoDescription"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
