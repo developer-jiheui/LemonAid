@@ -138,7 +138,6 @@
         </LinearLayout>
 
         <Button
-            android:cardCornerRadius="100dp"
             android:id="@+id/btnViewComplaint"
             android:layout_width="200dp"
             android:layout_height="wrap_content"

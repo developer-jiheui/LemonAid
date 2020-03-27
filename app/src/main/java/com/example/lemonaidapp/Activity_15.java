@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class Activity_15 extends AppCompatActivity {
     DatabaseHelper dbh;
     double payBalance;
@@ -19,10 +21,24 @@ public class Activity_15 extends AppCompatActivity {
         setContentView(R.layout.activity_15);
 
         dbh = new DatabaseHelper(this);
+        Intent i = getIntent();
+
+        final String email = i.getStringExtra("email");
         final TextView totalBalance = findViewById(R.id.txtNewBalance);
 
         Button btnPatientProfile = findViewById(R.id.btnPayLater);
         Button btnPayNow = findViewById(R.id.btnPayNow);
+
+
+        ArrayList<Integer> listOfCharges = dbh.getAllAmountOwed(email);
+
+        for (int index = 0; index<listOfCharges.size();index++){
+            payBalance += listOfCharges.get(index);
+        }
+        totalBalance.setText("New Account Balance/n : $, " + payBalance);
+
+
+
 
         //I have to calculate and populate the final balance here
 
@@ -30,6 +46,7 @@ public class Activity_15 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(Activity_15.this,Activity_9.class);
+                i.putExtra("email",email);
                 startActivity(i);
 
             }
@@ -37,7 +54,9 @@ public class Activity_15 extends AppCompatActivity {
         btnPayNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                dbh.updateAmountOwed(email);
                 Intent i = new Intent(Activity_15.this,Activity_14.class);
+                i.putExtra("email",email);
                 startActivity(i);
             }
         });

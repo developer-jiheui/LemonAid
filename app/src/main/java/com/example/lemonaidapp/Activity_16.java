@@ -9,9 +9,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 public class Activity_16 extends AppCompatActivity {
     DatabaseHelper dbh;
     double payBalance;
+    double noMSPamt =135.00;
     String userMsgInput;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +27,12 @@ public class Activity_16 extends AppCompatActivity {
         Button btnNoMSPSendMsg = findViewById(R.id.btnSendNoMSP);
 
         //also show the noMSP fee (How much is it?)
+        Intent i = getIntent();
+        final String email = i.getStringExtra("email");
+        final String docEmail = i.getStringExtra("docEmail");
+
+
+        noMspText.setText("Please note for users with no MSP online consultation is $"+noMSPamt);
 
 
 
@@ -31,8 +40,10 @@ public class Activity_16 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 userMsgInput = patientMsg.getText().toString();
+                dbh.addrecordComment(docEmail,email,userMsgInput,null);
                 //put this input to the database somehow
                 Intent i = new Intent(Activity_16.this,Activity_15.class);
+
                 startActivity(i);
             }
         });

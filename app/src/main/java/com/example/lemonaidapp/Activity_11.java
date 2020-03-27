@@ -20,6 +20,7 @@ public class Activity_11 extends AppCompatActivity {
         dbh= new DatabaseHelper(this);
         Intent i = getIntent();
         final String email = i.getStringExtra("email");
+        final String docEmail = i.getStringExtra("docEmail");
 
 
         Button btnOnlineHelp = findViewById(R.id.btnOnlineHelp);
@@ -32,11 +33,14 @@ public class Activity_11 extends AppCompatActivity {
                 if (!dbh.getdataPatient(email,4).equals("NO")){
                     Intent intent = new Intent(Activity_11.this, Activity_17.class);
                     intent.putExtra("email",email);
+                    intent.putExtra("docEmail",email);
+
                     startActivity(intent);
                 }
                 else{
                     Intent intent = new Intent(Activity_11.this, Activity_16.class);
                     intent.putExtra("email",email);
+                    intent.putExtra("docEmail",email);
                     startActivity(intent);
                 }
             }

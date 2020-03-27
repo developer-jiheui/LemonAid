@@ -19,6 +19,10 @@ public class Activity_17 extends AppCompatActivity {
         setContentView(R.layout.activity_17);
 
         dbh = new DatabaseHelper(this);
+        Intent i = getIntent();
+        final String email = i.getStringExtra("email");
+        final String docEmail = i.getStringExtra("docEmail");
+
         final EditText patientMsg = findViewById(R.id.editComplaint);
         Button btnPatientMsg = findViewById(R.id.btnSubmitComplaint);
 
@@ -27,8 +31,11 @@ public class Activity_17 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 userMsgInput = patientMsg.getText().toString();
+                dbh.addrecordComment(docEmail,email,userMsgInput,null);
+
                 //put this input to the database somehow
                 Intent i = new Intent(Activity_17.this,Activity_18.class);
+
                 startActivity(i);
             }
         });
