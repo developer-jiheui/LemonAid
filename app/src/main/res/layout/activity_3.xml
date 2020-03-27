@@ -1,148 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+
+
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity_3">
+    android:layout_marginTop="30dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginRight="20dp"
+    android:layout_marginBottom="30dp"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <Button
-        android:id="@+id/btnViewComplaint"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="147dp"
-        android:text="@string/txtViewActive"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.448"
-        app:layout_constraintStart_toStartOf="parent" />
+        <Button
+            android:id="@+id/btnEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_gravity="end|top"
+            android:text="@string/txtEditProfile" />
 
-    <TextView
-        android:id="@+id/txtFName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="90dp"
-        android:text="@string/txtFirstName"
-        app:layout_constraintEnd_toEndOf="@+id/txtEmail"
-        app:layout_constraintStart_toStartOf="@+id/txtEmail"
-        app:layout_constraintTop_toTopOf="parent" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/txtLName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:text="@string/txtLname"
-        app:layout_constraintStart_toStartOf="@+id/txtFName"
-        app:layout_constraintTop_toBottomOf="@+id/txtFName" />
+            <TextView
+                android:id="@+id/txtFName"
+                android:layout_width="130dp"
+                android:gravity="end"
+                android:textSize="18dp"
+                android:layout_height="wrap_content"
+                android:text="@string/txtFirstName" />
 
-    <TextView
-        android:id="@+id/txtPNum"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginLeft="1dp"
-        android:layout_marginTop="32dp"
-        android:text="@string/txtPnum"
-        app:layout_constraintStart_toStartOf="@+id/txtLName"
-        app:layout_constraintTop_toBottomOf="@+id/txtLName" />
+            <EditText
+                android:id="@+id/editFName"
+                android:layout_marginLeft="10dp"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/txtFirstName"
+                android:inputType="textPersonName"
+                android:importantForAutofill="no" />
+        </LinearLayout>
 
-    <TextView
-        android:id="@+id/txtEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="59dp"
-        android:layout_marginRight="59dp"
-        android:text="@string/txtEmail"
-        app:layout_constraintEnd_toEndOf="@+id/txtOffice"
-        app:layout_constraintEnd_toStartOf="@+id/txtEm"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPNum" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-    <EditText
-        android:id="@+id/editFName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="74dp"
-        android:layout_marginEnd="26dp"
-        android:layout_marginRight="26dp"
-        android:layout_marginBottom="140dp"
-        android:ems="10"
-        android:hint="@string/txtFirstName"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/txtEm"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="Autofill" />
+            <TextView
+                android:id="@+id/txtEmail"
+                android:layout_width="130dp"
+                android:gravity="end"
+                android:textSize="18dp"
+                android:layout_height="wrap_content"
+                android:text="@string/txtEmail" />
 
-    <EditText
-        android:id="@+id/editLName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/txtLname"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="@+id/editFName"
-        app:layout_constraintTop_toBottomOf="@+id/editFName"
-        tools:ignore="Autofill" />
+            <EditText
+                android:id="@+id/txtEm"
+                android:layout_marginLeft="10dp"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/txtDoctorEmail"
+                android:inputType="textEmailAddress"
+                android:importantForAutofill="no" />
+        </LinearLayout>
 
-    <EditText
-        android:id="@+id/editPNum"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:ems="10"
-        android:hint="@string/txtPnum"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="@+id/editLName"
-        app:layout_constraintTop_toBottomOf="@+id/editLName"
-        tools:ignore="Autofill" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/txtOffice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginLeft="36dp"
-        android:layout_marginBottom="60dp"
-        android:text="@string/officeLocation"
-        app:layout_constraintBottom_toTopOf="@+id/btnViewComplaint"
-        app:layout_constraintStart_toStartOf="parent" />
+            <TextView
+                android:id="@+id/txtLName"
+                android:layout_width="130dp"
+                android:gravity="end"
+                android:textSize="18dp"
 
-    <TextView
-        android:id="@+id/txtOL"
-        android:layout_width="209dp"
-        android:layout_height="77dp"
-        android:layout_marginEnd="44dp"
-        android:layout_marginRight="44dp"
-        android:layout_marginBottom="46dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnViewComplaint"
-        app:layout_constraintEnd_toEndOf="parent" />
+                android:layout_height="wrap_content"
+                android:text="@string/txtLname" />
 
-    <Button
-        android:id="@+id/btnEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="33dp"
-        android:layout_marginRight="33dp"
-        android:text="@string/txtEditProfile"
-        app:layout_constraintEnd_toEndOf="@+id/btnViewComplaint"
-        app:layout_constraintTop_toBottomOf="@+id/btnViewComplaint" />
+            <EditText
+                android:id="@+id/editLName"
+                android:layout_marginLeft="10dp"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/txtLname"
+                android:inputType="textPersonName"
+                android:importantForAutofill="no" />
+        </LinearLayout>
 
-    <TextView
-        android:id="@+id/txtEm"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="53dp"
-        android:layout_marginRight="53dp"
-        android:layout_marginBottom="448dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/txtEmail"
-        app:layout_constraintTop_toBottomOf="@+id/editFName" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/txtPNum"
+                android:layout_width="130dp"
+                android:gravity="end"
+                android:textSize="18dp"
+                android:layout_height="wrap_content"
+                android:text="@string/txtPnum" />
+
+            <EditText
+                android:id="@+id/editPNum"
+                android:layout_marginLeft="10dp"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/txtPnum"
+                android:inputType="textPersonName"
+                android:importantForAutofill="no" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txtOffice"
+                android:layout_width="130dp"
+                android:gravity="end"
+                android:textSize="18dp"
+                android:layout_height="wrap_content"
+                android:text="@string/officeLocation" />
+
+            <TextView
+                android:id="@+id/txtOL"
+                android:layout_width="200dp"
+                android:layout_height="55dp" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnViewComplaint"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="@string/txtViewActive"
+            android:layout_marginTop="50dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:background="@color/colorPrimaryDark"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"/>
+
+    </LinearLayout>
