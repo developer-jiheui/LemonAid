@@ -70,8 +70,8 @@ public class Activity_2 extends AppCompatActivity {
                     String patientName = dbh.getdataPatient(userEmail,1);
 
                     if (!patientName.equals("")) {
-                        //Jiheui: I changed this to Activity8 (Patient Profile page)
-                        Intent i = new Intent(Activity_2.this, Activity_8.class);
+                        //Jiheui: I changed this to Activity 9 (Patient Profile page)
+                        Intent i = new Intent(Activity_2.this, Activity_9.class);
                         i.putExtra("email", userEmail);
                         startActivity(i);
                     }

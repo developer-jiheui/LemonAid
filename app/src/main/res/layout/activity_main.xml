@@ -18,12 +18,15 @@
 
             <TextView
                 android:id="@+id/txtLemonAid"
-                android:layout_width="230dp"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="75dp"
+                android:layout_marginLeft="80dp"
                 android:gravity="bottom|end"
                 android:text="@string/mainTitle"
-                android:textColor="#FFEB3B"
+                android:textColor="#FDD835"
                 android:textSize="50sp"
+                app:fontFamily="sans-serif-medium"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -36,7 +39,8 @@
                 android:gravity="bottom|start"
                 android:text="@string/title2"
                 android:textColor="#FC0007"
-                android:textSize="50sp" />
+                android:textSize="50sp"
+                app:fontFamily="sans-serif" />
 
         </LinearLayout>
 
@@ -44,7 +48,7 @@
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="70dp"
             android:contentDescription="@string/logoDescription"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"

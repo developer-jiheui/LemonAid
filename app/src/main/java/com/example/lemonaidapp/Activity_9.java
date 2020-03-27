@@ -17,8 +17,8 @@ public class Activity_9 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_9);
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_3actual);
+        //super.onCreate(savedInstanceState);
+        //setContentView(R.layout.activity_3actual);
         /**
          Intent intent = getIntent();
          final String email = intent.getStringExtra("email");

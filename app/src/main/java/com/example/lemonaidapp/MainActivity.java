@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
             }
         };
         Timer opening = new Timer();
-        opening.schedule(task, 1500);
+        opening.schedule(task, 2500);
 
     }
 }
