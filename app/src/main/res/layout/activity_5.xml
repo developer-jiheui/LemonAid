@@ -20,14 +20,13 @@
 
         <Button
             android:id="@+id/btnLogOut"
-            android:layout_width="100dp"
             android:layout_height="40dp"
-            android:background="#FFF7AD"
             android:text="@string/logOut"
-            android:textColor="#673AB7"
-            android:textSize="18sp"
+            android:background="@drawable/bg_logout"
+            android:textColor="@color/colorSpecialDark"
+            android:textSize="16sp"
             android:layout_gravity="start"
-            />
+            android:layout_width="90dp" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -97,7 +96,7 @@
         android:layout_marginTop="60dp"
         android:layout_gravity="center_horizontal"
         android:gravity="center"
-        android:background="@color/colorPrimaryDark"
+        android:background="@drawable/bg_button"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         android:text="@string/regNUser" />
@@ -109,7 +108,7 @@
         android:layout_marginTop="60dp"
         android:layout_gravity="center_horizontal"
         android:gravity="center"
-        android:background="@color/colorPrimaryDark"
+        android:background="@drawable/bg_button"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         android:text="@string/chAccount" />
@@ -121,7 +120,7 @@
         android:layout_marginTop="60dp"
         android:layout_gravity="center_horizontal"
         android:gravity="center"
-        android:background="@color/colorPrimaryDark"
+        android:background="@drawable/bg_button"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         android:text="@string/appM" />

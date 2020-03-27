@@ -13,6 +13,11 @@
         <item>Doctor B</item>
         <item>Doctor C</item>
     </string-array>
+    <string-array name="CommentList">
+        <item>Comment 1</item>
+        <item>Comment 2</item>
+        <item>Comment 3</item>
+    </string-array>
     <string name="pNumformat">XXX-XXX-XXXX</string>
     <string name="postalFormat">X1X 1X1</string>
     <string name="txtAmountDue">Amount Due: \n $</string>
