@@ -42,7 +42,8 @@ public class Activity_13 extends AppCompatActivity {
         btnProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent (Activity_13.this,Activity_3actual.class);
+                                                                    //Jiheui: I changed this from 3_actual to 9(Patient profile)
+                Intent intent = new Intent (Activity_13.this,Activity_8.class);
                 intent.putExtra("email",email);
                 startActivity(intent);
             }

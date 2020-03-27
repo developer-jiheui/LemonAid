@@ -45,7 +45,7 @@
     <string name="btnDrProfile">Return to Doctor\'s Profile</string>
     <string name="btnEdit">Edit profile</string>
     <string name="txtGreeting">Hello, Username</string>
-    <string name="txtPayHistory">Charges History</string>
+    <string name="txtPayHistory">Payment History</string>
     <string name="txtLocation">Use Your Location</string>
     <string name="txtOR">OR</string>
     <string name="txtPostalCode">Enter Your Postal Code</string>
@@ -64,7 +64,7 @@
     <string name="rdNoMSP">I don\'t have MSP</string>
     <string name="txtAge">Age</string>
     <string name="txtPostal">Postal Code</string>
-    <string name="txtHelloAccount"></string>
+    <string name="txtHelloAccount">Hello, Username</string>
     <string name="txtEditProfile">Edit Profile</string>
     <string name="txtLogOut">Log Out</string>
     <string name="txtFindDoctor">Find Doctor</string>
