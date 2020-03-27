@@ -1,144 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:scrollbarSize="22sp"
-    tools:context=".Activity_3actual">
-
-    <Button
-        android:id="@+id/btnLogOut"
-        android:layout_width="0dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:text="@string/txtLogOut"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnEditProfile"
-        app:layout_constraintTop_toTopOf="parent" />
+    tools:context=".Activity_3actual" >
 
     <TextView
-        android:id="@+id/txtHelloFname"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="33dp"
-        android:layout_marginLeft="33dp"
-        android:layout_marginTop="32dp"
-        android:text="@string/txtHelloAccount"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnEditProfile" />
-
-    <Button
-        android:id="@+id/btnEditProfile"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="176dp"
-        android:layout_marginLeft="176dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="1dp"
-        android:text="@string/txtEditProfile"
-        app:layout_constraintBottom_toBottomOf="@+id/btnLogOut"
-        app:layout_constraintEnd_toStartOf="@+id/btnLogOut"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btnLogOut" />
-
-    <Button
-        android:id="@+id/btnFindDoc"
-        android:layout_width="209dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="85dp"
-        android:layout_marginBottom="85dp"
-        android:text="@string/txtFindDoctor"
-        app:layout_constraintBottom_toBottomOf="@+id/textView12"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/txtHelloFname" />
-
-    <TextView
-        android:id="@+id/textView12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:text="@string/txtAcctBalance"
-        android:textSize="18sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/txtAccountBalance"
-        app:layout_constraintStart_toStartOf="@+id/btnHistory" />
-
-    <TextView
-        android:id="@+id/txtAccountBalance"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="7dp"
-        android:layout_marginLeft="7dp"
-        android:layout_marginBottom="50dp"
-        android:text="@string/txtAccountBalance"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnMakePay"
-        app:layout_constraintStart_toEndOf="@+id/textView12" />
-
-    <Button
-        android:id="@+id/btnHistory"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginRight="12dp"
-        android:text="@string/txtPaymentHistory"
-        app:layout_constraintBottom_toBottomOf="@+id/btnMakePay"
-        app:layout_constraintEnd_toStartOf="@+id/btnMakePay"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btnMakePay" />
-
-    <Button
-        android:id="@+id/btnMakePay"
-        android:layout_width="0dp"
-        android:layout_height="67dp"
-        android:layout_marginEnd="67dp"
-        android:layout_marginRight="67dp"
-        android:layout_marginBottom="301dp"
-        android:text="@string/txtPay"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnHistory" />
-
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="67dp"
-        android:text="@string/txtCmtHistory"
+        android:id="@+id/message"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/nestedScrollView"
-        app:layout_constraintTop_toBottomOf="@+id/btnMakePay" />
-
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/nestedScrollView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="47dp"
-        android:layout_marginLeft="47dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="47dp"
-        android:layout_marginRight="47dp"
-        android:layout_marginBottom="37dp"
-        android:fillViewport="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView14">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </androidx.core.widget.NestedScrollView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:textColor="#FF0000"
+        android:textStyle="bold"
+        />
+</RelativeLayout>

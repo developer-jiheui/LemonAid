@@ -2,11 +2,12 @@
 
     <!--Main-->
     <string name="app_name">LemonAidApp</string>
-    <string name="mainTitle">LemonAid</string>
+    <string name="mainTitle">Lemon</string>
     <string name="logoDescription">LemonAid Logo</string>
     <string name="txtProfileDsc">Find Profile by Username</string>
     <string name="txtInfo">Signed in as</string>
-
+    <string name="title2">Aid</string>
+    <string name="empty"> </string>
     <string-array name="DoctorList">
         <item>Doctor A</item>
         <item>Doctor B</item>
@@ -79,6 +80,9 @@
     <string name="txtAccountBalance">$xx.xx</string>
     <string name="hintID">Enter your username</string>
     <string name="hintpass">Enter your password</string>
+    <string name= "officeLocation"> Office Location</string>
+    <string name="txtViewActive">View Complaints</string>
+    <string name="txtMessageHistory">Message History</string>
 
     <!--Activity_5-->
     <string name="LoggedInAs">Logged In As</string>
@@ -92,6 +96,10 @@
     <string name="appM">App Maintenance</string>
     <string name="logOut">Log Out</string>
 
+    <!--Activity_6-->
+    <string name="btnFindProfile">Find Profile to Edit</string>
+    <string name="findProfileDsc">Find Profile by MSP Number</string>
+
     <!--Activity_7-->
     <string name="txtUsername">Username</string>
     <string name="txtFirstName">First Name</string>
@@ -102,4 +110,5 @@
     <!--Activity_8-->
     <string name="noMsp">"I don't have MSP"</string>
     <string name="btnRegister">Register Account</string>
+
 </resources>

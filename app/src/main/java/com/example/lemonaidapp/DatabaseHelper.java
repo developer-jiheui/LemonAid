@@ -13,7 +13,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     final static String DATABASE_NAME = "lemonAidDB.db";
 
-    final static int DATABASE_VERSION = 6;
+    final static int DATABASE_VERSION = 12;
     final static String TABLE1_NAME = "Patient_table";
     final static String T1COL_1 = "user_Id";
     final static String T1COL_2 = "f_Name";
@@ -33,12 +33,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     final static String T2COL_3 = "l_Name";
     final static String T2COL_4 = "email_AddS";
     final static String T2COL_5 = "phone_Num";
-    final static String T2COL_6 = "stuff_Type";
+    final static String T2COL_6 = "staff_Type";
     final static String T2COL_7 = "office_Id";
 
     final static String TABLE3_NAME = "Office_table";
     final static String T3COL_1 = "office_Id";
-    final static String T3COL_2 = "country";
+    final static String T3COL_2 = "city";
     final static String T3COL_3 = "province";
     final static String T3COL_4 = "street_address";
     final static String T3COL_5 = "postal_Code";
@@ -63,7 +63,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     final static String TABLE7_NAME = "Comment_table";
     final static String T7COL_1 = "comment_id";
-    final static String T7COL_2 = "staff_Id";
+    final static String T7COL_2 = "email_AddS";
     final static String T7COL_3 = "email_Add";
     final static String T7COL_4 = "patientMessage";
     final static String T7COL_5 = "doctorReply";
@@ -92,7 +92,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(query5);
         String query6 = "CREATE TABLE " + TABLE6_NAME + "(" + T6COL_1 + " INTEGER," + T6COL_2 + " INTEGER," + T6COL_3 + " TEXT," + T6COL_4+ " TEXT)";
         db.execSQL(query6);
-        String query7 = "CREATE TABLE " + TABLE7_NAME + "(" + T7COL_1 + " INTEGER PRIMARY KEY," + T7COL_2 + " INTEGER," + T7COL_3 + " TEXT," + T7COL_4 + " TEXT," + T7COL_5 + " TEXT)";
+        String query7 = "CREATE TABLE " + TABLE7_NAME + "(" + T7COL_1 + " INTEGER PRIMARY KEY," + T7COL_2 + " TEXT," + T7COL_3 + " TEXT," + T7COL_4 + " TEXT," + T7COL_5 + " TEXT)";
         db.execSQL(query7);
     }
 
@@ -195,10 +195,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return false;
     }
 
-    public boolean addrecordComment(int staff_id, String email, String patientMessage, String doctorReply) {
+    public boolean addrecordComment(String emailStaff, String email, String patientMessage, String doctorReply) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(T7COL_2, staff_id);
+        contentValues.put(T7COL_2, emailStaff);
         contentValues.put(T7COL_3, email);
         contentValues.put(T7COL_4, patientMessage);
         contentValues.put(T7COL_5, doctorReply);
@@ -217,6 +217,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return c.getString(c.getColumnIndex(T4COL_2));
         return "";
 
+    }
+
+    public String getOfficeInfo (int officeID){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String[] selectionArgs = {String.valueOf(officeID)};
+        Cursor cOf = db.rawQuery("select * from Office_table where " + T3COL_1 + " =?", selectionArgs);
+        if (cOf.moveToFirst())
+            return (cOf.getString(cOf.getColumnIndex(T3COL_4)) +"\n" +cOf.getString(cOf.getColumnIndex(T3COL_2)) + "\n" + cOf.getString(cOf.getColumnIndex(T3COL_3)) +
+                    "\n" + cOf.getString(cOf.getColumnIndex(T3COL_5)));
+        return "";
     }
     public ArrayList<Integer> getAllAmountOwed(String email){
         ArrayList<Integer> listOfCharges=new ArrayList<Integer>();
@@ -239,6 +249,55 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return listOfDates;
     }
 
+    public ArrayList<String> getActiveMessages(String email){
+        ArrayList<String> listOfMessages=new ArrayList<String>();
+        SQLiteDatabase db = this.getWritableDatabase();
+        String[] selectionArgs = {String.valueOf(email)};
+        Cursor c = db.rawQuery("select * from Comment_table where " + T7COL_2 + " =?", selectionArgs);
+        while(c.moveToNext()) {
+            if (c.getString(c.getColumnIndex(T7COL_5)).equals(""))
+                listOfMessages.add(c.getString(c.getColumnIndex(T7COL_3))+"\n"+c.getString(c.getColumnIndex(T7COL_4)));
+        }
+        c.close();
+        return listOfMessages;
+    }
+    public boolean updateDoctorReply (String email, String reply){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(T7COL_5,reply);
+        int update =  db.update(TABLE7_NAME,contentValues, "email_AddS =?", new String[]{email});
+        if (update >0){
+            return true;
+        }
+        else
+            return false;
+    }
+
+
+    public String getdataStaff(String email, int i) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String[] selectionArgs = {String.valueOf(email)};
+
+        Cursor c = db.rawQuery("select * from Staff_table where " + T2COL_4 + " =?", selectionArgs);
+        if (c.moveToFirst()) {
+            if (i == 1) {
+                return c.getString(c.getColumnIndex(T2COL_2));
+            }
+            if (i == 2) {
+                return c.getString(c.getColumnIndex(T2COL_3));
+            }
+            if (i == 3) {
+                return c.getString(c.getColumnIndex(T2COL_5));
+            }
+            if (i == 4) {
+                return c.getString(c.getColumnIndex(T2COL_6));
+            }
+            if (i ==5){
+                return c.getString(c.getColumnIndex(T2COL_7));
+            }
+        }
+        return "";
+    }
 
     public String getdataPatient(String email, int i) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -272,6 +331,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         return "";
     }
+    // Cursor for Activity_6
+    public Cursor getPatientData() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor patientC = db.rawQuery("select * from Patient_Table", null);
+        return patientC;
+    }
+    // Cursor for Activity_6
+    public Cursor getStaffData() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor staffC = db.rawQuery("select * from Staff_table", null);
+        return staffC;
+    }
+
     public boolean updateAmountOwed (String email){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -290,6 +362,28 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(T4COL_2,password);
         int update =  db.update(TABLE4_NAME,contentValues, "email_Add =?", new String[]{email});
     }
+
+
+
+    public boolean updateDoctorInfo (String email, int index, String newData){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        if (index == 1)
+            contentValues.put(T2COL_2,newData);
+        if (index ==2)
+            contentValues.put(T2COL_3,newData);
+        if (index ==3)
+            contentValues.put(T2COL_4,newData);
+
+        int update =  db.update(TABLE2_NAME,contentValues, "email_AddS =?", new String[]{email});
+        if (update >0){
+            return true;
+        }
+        else
+            return false;
+    }
+
+
 }
 
 
