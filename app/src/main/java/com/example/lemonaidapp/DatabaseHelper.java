@@ -77,7 +77,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String query = "CREATE TABLE " + TABLE1_NAME + "(" + T1COL_1 + " INTEGER PRIMARY KEY," + T1COL_2 + " TEXT," +
-                T1COL_3 + " TEXT," + T1COL_4 + " TEXT," + T1COL_5 + " TEXT," + T1COL_6 + " TEXT," + T1COL_7 + " INTEGER," + T1COL_8 + " TEXT," + T1COL_9 + " TEXT," + T1COL_10 + " TEXT,"+ T1COL_11 + " TEXT)";
+                T1COL_3 + " TEXT," + T1COL_4 + " TEXT," + T1COL_5 + " TEXT," + T1COL_6 + " TEXT," + T1COL_7 + " INTEGER,"
+                + T1COL_8 + " TEXT," + T1COL_9 + " TEXT," + T1COL_10 + " TEXT,"+ T1COL_11 + " TEXT)";
         db.execSQL(query);
         String query2 = "CREATE TABLE " + TABLE2_NAME + "(" + T2COL_1 + " INTEGER PRIMARY KEY," + T2COL_2 + " TEXT," +
                 T2COL_3 + " TEXT," + T2COL_4 + " TEXT," + T2COL_5 + " TEXT," + T2COL_6 + " TEXT," + T2COL_7 + " INTEGER)";
@@ -89,12 +90,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String query4 = "CREATE TABLE " + TABLE4_NAME + "(" + T4COL_1 + " TEXT," + T4COL_2 + " TEXT)";
         db.execSQL(query4);
 
-        String query5 = "CREATE TABLE " + TABLE5_NAME + "(" + T5COL_1 + " INTEGER PRIMARY KEY," + T5COL_2 + " INTEGER," + T5COL_3 + " TEXT," + T5COL_4 + " TEXT," + T5COL_5 + " TEXT,"
-                + T5COL_6 + " TEXT)";
+        String query5 = "CREATE TABLE " + TABLE5_NAME + "(" + T5COL_1 + " INTEGER PRIMARY KEY," + T5COL_2 + " INTEGER,"
+                + T5COL_3 + " TEXT," + T5COL_4 + " TEXT," + T5COL_5 + " TEXT," + T5COL_6 + " TEXT)";
         db.execSQL(query5);
         String query6 = "CREATE TABLE " + TABLE6_NAME + "(" + T6COL_1 + " TEXT," + T6COL_2 + " INTEGER," + T6COL_3 + " TEXT," + T6COL_4+ " TEXT)";
         db.execSQL(query6);
-        String query7 = "CREATE TABLE " + TABLE7_NAME + "(" + T7COL_1 + " INTEGER PRIMARY KEY," + T7COL_2 + " TEXT," + T7COL_3 + " TEXT," + T7COL_4 + " TEXT," + T7COL_5 + " TEXT)";
+        String query7 = "CREATE TABLE " + TABLE7_NAME + "(" + T7COL_1 + " INTEGER PRIMARY KEY," + T7COL_2 + " TEXT,"
+                + T7COL_3 + " TEXT," + T7COL_4 + " TEXT," + T7COL_5 + " TEXT)";
         db.execSQL(query7);
     }
 
@@ -485,11 +487,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             contentValues.put(T1COL_8,newData);
 
         int update =  db.update(TABLE1_NAME,contentValues, "email_Add =?", new String[]{email});
-        if (update >0){
-            return true;
-        }
-        else
-            return false;
+        //Jiheui : I just simplified the if/else
+        return update >0;
     }
 
 
