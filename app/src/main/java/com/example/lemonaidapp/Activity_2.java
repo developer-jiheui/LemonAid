@@ -26,26 +26,30 @@ public class Activity_2 extends AppCompatActivity {
 
         dbh.addrecordComment("em","email","I am dying","");
         dbh.addrecordComment("em","email1233","I am dying20","zxzxz");
-        dbh.addrecordComment("em","emaildfd","I am dying30","");
+        dbh.addrecordComment("em","emaildfd","2020-03-29 10:38:59.849 29695-29728/com.example.lemonaidapp D/EGL_emulation: eglMakeCurrent: 0xec005300: ver 2 0 (tinfo 0xec0036a0)\n" +
+                "2020-03-29 10:38:59.884 29695-29728/com.example.lemonaidapp D/EGL_emulation: eglMakeCurrent: 0xec005300: ver 2 0 (tinfo 0xec0036a0)\n" +
+                "2020-03-29 10:38:59.909 29695-29728/com.example.lemonaidapp D/EGL_emulation: eglMakeCurrent: 0xec005300: ver 2 0 (tinfo 0xec0036a0)","");
 
-        dbh.addrecordOffice("Canada","AB","111 1st Street","T6B 6B6");
-        dbh.addrecordOffice("Canada","AB","222 2nd Street","T7H 7H7");
-        dbh.addrecordOffice("Canada","BC","11 Douglas Street","V3L 2G5");
-        dbh.addrecordOffice("Canada","BC","22 College Street","V4G 1T6");
-        dbh.addrecordOffice("Canada","BC","33 Student Street","V7Y 8H0");
-        dbh.addrecordOffice("Canada","BC","44 CSIS Street","V6S 7Y4");
-
-        dbh.addrecordLogin("email","111");
-        dbh.addrecordLogin("email12","12");
-        dbh.addrecordLogin("email123","123");
-        dbh.addrecordLogin("email1234","1234");
-        dbh.addrecordLogin("em","0");
-        dbh.addrecordLogin("Cashier","1");
 
         dbh.addrecordOffice("Vancouver", "BC","111 1st","V4f 3F5");
-        dbh.addrecordStaff("jak","bil","em","343242","Doctor",1);
-        dbh.addrecordStaff("jak","bil","Cashier","343242","Cashier",123);
-        dbh.addrecordPatient("Bill","B","email","667-969-5656","no",50,"x1x 1x1",false);
+
+        dbh.addrecordLogin("email","111");
+        dbh.addrecordLogin("em","0");
+        dbh.addrecordLogin("Cashier","1");
+        dbh.addrecordLogin("Fuller@gmail.com","111");
+
+        //Joel: Added an admin log-in to lead to admin page (activity_5)
+        dbh.addrecordLogin("Admin", "admin123");
+
+
+        dbh.addrecordStaff("jak","bil","em","343242","Doctor","1");
+
+        //Joel: Added admin staff
+        dbh.addrecordStaff("admin", "admin", "Admin", "000000", "Admin", "0");
+        dbh.addrecordStaff("jak","bil","Cashier","343242","Cashier","123");
+        dbh.addrecordPatient("Bill","B","email","667-969-5656","no","50","x1x 1x1","no");
+        dbh.addrecordPatient("Bob","Fuller","Fuller@gmail.com","667-969-5656","n45456456","50","x1x 1x1","no");
+        dbh.addrecordTransaction("em",135,"email","October 1, 2020");
 
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,12 +85,12 @@ public class Activity_2 extends AppCompatActivity {
                             iD.putExtra("email", userEmail);
                             startActivity(iD);
                         }
-                        if (dbh.getdataStaff(userEmail,4).equals("Cashier")) {
+                        else if (dbh.getdataStaff(userEmail,4).equals("Cashier")) {
                             Intent iD = new Intent(Activity_2.this, Activity_4.class);
                             iD.putExtra("email", userEmail);
                             startActivity(iD);
                         }
-                        if (dbh.getdataStaff(userEmail,4).equals("Admin")) {
+                        else if (dbh.getdataStaff(userEmail,4).equals("Admin")) {
                             Intent iD = new Intent(Activity_2.this, Activity_5.class);
                             iD.putExtra("email", userEmail);
                             startActivity(iD);

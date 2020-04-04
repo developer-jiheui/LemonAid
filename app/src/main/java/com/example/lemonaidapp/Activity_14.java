@@ -17,7 +17,7 @@ public class Activity_14 extends AppCompatActivity {
         dbh = new DatabaseHelper(this);
         Intent i = getIntent();
         final String email = i.getStringExtra("email");
-        TextView amountOwe = findViewById(R.id.txtAmountDue);
+        final TextView amountOwe = findViewById(R.id.txtAmountDue);
         final int amountOwed = Integer.parseInt(dbh.getdataPatient(email,8));
         amountOwe.setText(" Amount Due:\n $" + amountOwed);
         Button btnReturn = findViewById(R.id.btnBack);
@@ -28,7 +28,7 @@ public class Activity_14 extends AppCompatActivity {
         btnReturn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent (Activity_14.this,Activity_3actual.class);
+                Intent intent = new Intent (Activity_14.this,Activity_9.class);
                 intent.putExtra("email",email);
                 startActivity(intent);
             }
@@ -38,10 +38,13 @@ public class Activity_14 extends AppCompatActivity {
             public void onClick(View v) {
                 if (amountOwed == 0){
                     payReceived.setText("Balance is $0, no payment required!");
+
                 }
                 else{
                     payReceived.setText("Payment of " + amountOwed + "$ has been received! \n Thank you!");
-                    dbh.updateAmountOwed(email);
+                    dbh.updateAmountOwed(email,"0");
+                    dbh.updateNumRemin(email,"0");
+                    amountOwe.setText(" Amount Due:\n $" + Integer.parseInt(dbh.getdataPatient(email,8)));
                 }
             }
         });

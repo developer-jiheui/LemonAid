@@ -16,6 +16,8 @@ public class Activity_7 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_7);
 
+        dbh = new DatabaseHelper(this);
+
         Button btnRegister = findViewById(R.id.btnRegister);
         final EditText etFirstName = findViewById(R.id.etFirstName);
         final EditText etLastName = findViewById(R.id.etLastName);
@@ -49,7 +51,7 @@ public class Activity_7 extends AppCompatActivity {
                     // Insert to staff table
                     isInsertedStaff = dbh.addrecordStaff(etFirstName.getText().toString(), etLastName.getText().toString(),
                             etEmail.getText().toString(), etPhoneNum.getText().toString(), userType,
-                            Integer.parseInt(etOfficeID.getText().toString()));
+                            etOfficeID.getText().toString());
                     // Insert to Login table
                     isInsertedLogin = dbh.addrecordLogin(etEmail.getText().toString(), etPassword.getText().toString());
                     //Verify staff insert
@@ -69,32 +71,46 @@ public class Activity_7 extends AppCompatActivity {
             });
         }
         else {
-            etFirstName.setText(intent.getStringExtra("staffFName"));
-            etLastName.setText(intent.getStringExtra("staffLName"));
-            etOfficeID.setText(intent.getStringExtra("staffOfficeID"));
-            etPhoneNum.setText(intent.getStringExtra("staffPhone"));
-            etEmail.setText(intent.getStringExtra("staffEmail"));
+            etFirstName.setText(intent.getStringExtra("fName"));
+            etLastName.setText(intent.getStringExtra("lName"));
+            etOfficeID.setText(intent.getStringExtra("officeID"));
+            etPhoneNum.setText(intent.getStringExtra("phone"));
+            etEmail.setText(intent.getStringExtra("email"));
+            etPassword.setText("");
 
             btnRegister.setOnClickListener(new View.OnClickListener() {
-                boolean isInsertedStaff;
-                boolean isInsertedLogin;
+                boolean isUpdatedStaff1;
+                boolean isUpdatedStaff2;
+                boolean isUpdatedStaff3;
+                boolean isUpdatedStaff4;
+                boolean isUpdatedStaff5;
+                boolean isUpdatedLogin;
 
                 @Override
                 public void onClick(View v) {
+                    String email = etEmail.getText().toString();
+                    String fName = etFirstName.getText().toString();
+                    String lName = etLastName.getText().toString();
+                    String officeID = etOfficeID.getText().toString();
+                    String phone = etPhoneNum.getText().toString();
+                    String password = etPassword.getText().toString();
+
                     // Insert to staff table
-                    isInsertedStaff = dbh.addrecordStaff(etFirstName.getText().toString(), etLastName.getText().toString(),
-                            etEmail.getText().toString(), etPhoneNum.getText().toString(), userType,
-                            Integer.parseInt(etOfficeID.getText().toString()));
+                   isUpdatedStaff1 = dbh.updateDoctorInfo(email, 1, fName);
+                   isUpdatedStaff2 = dbh.updateDoctorInfo(email, 2, lName);
+                   isUpdatedStaff3 = dbh.updateDoctorInfo(email, 3, email);
+                   isUpdatedStaff4 = dbh.updateDoctorInfo(email, 5, officeID);
+                   isUpdatedStaff5 = dbh.updateDoctorInfo(email, 6, phone);
                     // Insert to Login table
-                    isInsertedLogin = dbh.addrecordLogin(etEmail.getText().toString(), etPassword.getText().toString());
+                    isUpdatedLogin = dbh.updatePassword(email, password);
                     //Verify staff insert
-                    if (isInsertedStaff) {
+                    if (isUpdatedStaff1 && isUpdatedStaff2 && isUpdatedStaff3 && isUpdatedStaff4 && isUpdatedStaff5) {
                         Toast.makeText(Activity_7.this, "Staff Record added", Toast.LENGTH_LONG).show();
                     } else {
-                        Toast.makeText(Activity_7.this, "Staff Record not added", Toast.LENGTH_LONG).show();
+                        Toast.makeText(Activity_7.this, "Some fields are missing", Toast.LENGTH_LONG).show();
                     }
                     //Verify Login insert
-                    if (isInsertedLogin) {
+                    if (isUpdatedLogin) {
                         Toast.makeText(Activity_7.this, "Login Record added", Toast.LENGTH_LONG).show();
                     } else {
                         Toast.makeText(Activity_7.this, "Login Record not added", Toast.LENGTH_LONG).show();

@@ -31,10 +31,11 @@ public class Activity_17 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 userMsgInput = patientMsg.getText().toString();
-                dbh.addrecordComment(docEmail,email,userMsgInput,null);
+                dbh.addrecordComment(docEmail,email,userMsgInput,"");
 
                 //put this input to the database somehow
                 Intent i = new Intent(Activity_17.this,Activity_18.class);
+
 
                 startActivity(i);
             }

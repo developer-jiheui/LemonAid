@@ -45,7 +45,7 @@
     <string name="btnDrProfile">Return to Doctor\'s Profile</string>
     <string name="btnEdit">Edit profile</string>
     <string name="txtGreeting">Hello, Username</string>
-    <string name="txtPayHistory">Payment History</string>
+    <string name="txtPayHistory">Charges History</string>
     <string name="txtLocation">Use Your Location</string>
     <string name="txtOR">OR</string>
     <string name="txtPostalCode">Enter Your Postal Code</string>
@@ -95,7 +95,7 @@
     <string name="patient">Patient</string>
     <string name="doctor">Doctor</string>
     <string name="cachier">Cachier</string>
-    <string name="admin">Adming</string>
+    <string name="admin">Admin</string>
     <string name="regNUser">Register New User</string>
     <string name="chAccount">Change Account</string>
     <string name="appM">App Maintenance</string>
@@ -115,5 +115,10 @@
     <!--Activity_8-->
     <string name="noMsp">"I don't have MSP"</string>
     <string name="btnRegister">Register Account</string>
+
+    <!--Activity_9-->
+    <string name="btnEditProfile">Edit Profile</string>
+    <string name="findDoctor">Find Doctor</string>
+    <string name="makePayment">Make Payment</string>
 
 </resources>

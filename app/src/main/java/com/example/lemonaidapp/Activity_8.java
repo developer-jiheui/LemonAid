@@ -33,20 +33,23 @@ public class Activity_8 extends AppCompatActivity {
         dbh = new DatabaseHelper(this);
 
         //Retrieve user type from activity_5 and check if this is an edit profile request from activity_6
-        String userType;
-        boolean activityRequest = false;
+
+        boolean editRequest;
 
         // Passing the email from Activity_2 (loginPage)
         String userEmail;
         Intent intent = getIntent();
-        final boolean createdByAdmin = intent.getBooleanExtra("createdByAdmin", false);
+        final String createdByAdmin;
         if(intent != null) {
-            userType = intent.getStringExtra("userType");
-            activityRequest = intent.getBooleanExtra("editRequest", false);
-            userEmail = intent.getStringExtra("email");
+            editRequest = intent.getBooleanExtra("editRequest", false);
+            createdByAdmin = intent.getStringExtra("isAdminC");
         }
+        else {
+            createdByAdmin = "no";
+            editRequest = false;
+            }
 
-        if(!activityRequest) {
+        if(!editRequest) {
             btnRegister.setOnClickListener(new View.OnClickListener() {
                 boolean isInsertedPatient;
                 boolean isInsertedLogin;
@@ -57,10 +60,12 @@ public class Activity_8 extends AppCompatActivity {
                     // If person doesn't have MSP, assign 0 as MSP number
                     if (hasNoMSP.isChecked())
                         MSP = "no";
+                    else
+                        MSP = etMSP.getText().toString();
                     //Add record to Patient table
                     isInsertedPatient = dbh.addrecordPatient(etFirstName.getText().toString(), etLastName.getText().toString(),
                             etEmail.getText().toString(), etPhoneNum.getText().toString(),
-                            MSP, Integer.parseInt(etAge.getText().toString()),
+                            MSP, etAge.getText().toString(),
                             etPostalCode.getText().toString(), createdByAdmin);
 
                     // Insert to Login table
@@ -68,13 +73,15 @@ public class Activity_8 extends AppCompatActivity {
                     //Verify staff insert
                     if (isInsertedPatient) {
                         Toast.makeText(Activity_8.this, "Patient Record added", Toast.LENGTH_LONG).show();
-                    } else {
+                    }
+                    else {
                         Toast.makeText(Activity_8.this, "Patient Record not added", Toast.LENGTH_LONG).show();
                     }
                     //Verify Login insert
                     if (isInsertedLogin) {
                         Toast.makeText(Activity_8.this, "Login Record added", Toast.LENGTH_LONG).show();
-                    } else {
+                    }
+                    else {
                         Toast.makeText(Activity_8.this, "Login Record not added", Toast.LENGTH_LONG).show();
                     }
                 }
@@ -82,40 +89,70 @@ public class Activity_8 extends AppCompatActivity {
             });
         }
         else {
-            etFirstName.setText(intent.getStringExtra("userFName"));
-            etLastName.setText(intent.getStringExtra("userLName"));
-            etPhoneNum.setText(intent.getStringExtra("userPhone"));
-            etEmail.setText(intent.getStringExtra("userEmail"));
-            etMSP.setText(intent.getStringExtra("userMSP"));
-            etAge.setText(intent.getStringExtra("userAge"));
-            etPostalCode.setText(intent.getStringExtra("userPostal"));
+            etFirstName.setText(intent.getStringExtra("fName"));
+            etLastName.setText(intent.getStringExtra("lName"));
+            etPhoneNum.setText(intent.getStringExtra("phone"));
+            etEmail.setText(intent.getStringExtra("email"));
+            etMSP.setText(intent.getStringExtra("msp"));
+            etAge.setText(intent.getStringExtra("age"));
+            etPostalCode.setText(intent.getStringExtra("postal"));
+            final String oldEmail = etEmail.getText().toString();
 
             btnRegister.setOnClickListener(new View.OnClickListener() {
-                boolean isInsertedPatient;
-                boolean isInsertedLogin;
-                String MSP;
+                boolean isUpdatedPatientFirstName;
+                boolean isUpdatedPatientLastName;
+                boolean isUpdatedPatientPhone;
+                boolean isUpdatedPatientMsp;
+                boolean isUpdatedPatientAge;
+                boolean isUpdatedPatientPostal;
+                boolean isUpdatedPatientEmail;
+                boolean isUpdatedLogin;
+
 
                 @Override
                 public void onClick(View v) {
-                    // If person doesn't have MSP, assign 0 as MSP number
-                    if (hasNoMSP.isChecked())
-                        MSP = "no";
+
+                    String fName = etFirstName.getText().toString();
+                    String lName = etLastName.getText().toString();
+                    String phone = etPhoneNum.getText().toString();
+                    String email = etEmail.getText().toString();
+                    String age = etAge.getText().toString();
+                    String msp;
+                    String postal = etPostalCode.getText().toString();
+                    String password = lName + fName.charAt(0);
+                    // If person doesn't have MSP, assign no as MSP number
+                    if (hasNoMSP.isChecked()){
+                        msp = "no";
+                        etMSP.setText("no");
+                    }
+                    else
+                        msp = etMSP.getText().toString();
+
+
                     //Add record to Patient table
-                    isInsertedPatient = dbh.addrecordPatient(etFirstName.getText().toString(), etLastName.getText().toString(),
-                            etEmail.getText().toString(), etPhoneNum.getText().toString(),
-                            MSP, Integer.parseInt(etAge.getText().toString()),
-                            etPostalCode.getText().toString(), createdByAdmin);
+                    isUpdatedPatientFirstName = dbh.updatePatientInfo(oldEmail, 1, fName);
+                    isUpdatedPatientLastName = dbh.updatePatientInfo(oldEmail, 2, lName);
+                    isUpdatedPatientPhone = dbh.updatePatientInfo(oldEmail, 6, phone);
+                    isUpdatedPatientMsp = dbh.updatePatientInfo(oldEmail, 4, msp);
+
+                    isUpdatedPatientAge = dbh.updatePatientInfo(oldEmail, 5, age);
+                    isUpdatedPatientPostal = dbh.updatePatientInfo(oldEmail, 8, postal);
+                    isUpdatedPatientEmail = dbh.updatePatientInfo(oldEmail, 3, email);
+
+
 
                     // Insert to Login table
-                    isInsertedLogin = dbh.addrecordLogin(etEmail.getText().toString(), etLastName.getText().toString() + etLastName.getText().toString().charAt(0));
+                    isUpdatedLogin = dbh.updatePassword(email, password);
+
                     //Verify staff insert
-                    if (isInsertedPatient) {
+                    if (isUpdatedPatientFirstName && isUpdatedPatientLastName && isUpdatedPatientPhone
+                            && isUpdatedPatientMsp && isUpdatedPatientAge && isUpdatedPatientPostal && isUpdatedPatientEmail) {
                         Toast.makeText(Activity_8.this, "Patient Record added", Toast.LENGTH_LONG).show();
                     } else {
                         Toast.makeText(Activity_8.this, "Patient Record not added", Toast.LENGTH_LONG).show();
                     }
                     //Verify Login insert
-                    if (isInsertedLogin) {
+                    if (isUpdatedLogin) {
                         Toast.makeText(Activity_8.this, "Login Record added", Toast.LENGTH_LONG).show();
                     } else {
                         Toast.makeText(Activity_8.this, "Login Record not added", Toast.LENGTH_LONG).show();
