@@ -21,10 +21,10 @@
             android:id="@+id/btnLogOut"
             android:layout_width="90dp"
             android:layout_height="wrap_content"
-            android:background="@color/colorSpecial"
-            android:textColor="@color/colorSpecialDark"
             android:layout_gravity="top|start"
-            android:text="Log Out" />
+            android:background="@color/colorSpecial"
+            android:text="@string/logOut"
+            android:textColor="@color/colorSpecialDark" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -33,17 +33,17 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/txtGreeting"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/txtGreeting" />
 
             <Button
-                android:id="@+id/etEditProfile"
-                android:layout_width="89dp"
+                android:id="@+id/btnEditProfile"
+                android:layout_width="109dp"
                 android:layout_height="33dp"
-                android:text="Edit Profile"
-                android:textSize="10sp" />
+                android:text="@string/btnEditProfile"
+                android:textSize="12sp" />
 
         </LinearLayout>
 
@@ -54,19 +54,18 @@
         android:layout_width="161dp"
         android:layout_height="65dp"
         android:layout_gravity="center"
-        android:textSize="16dp"
-        android:background="@drawable/bg_button"
-        android:textColor="#FFFFFF"
         android:layout_marginBottom="20dp"
-        android:text="Find Doctor" />
+        android:background="@drawable/bg_button"
+        android:text="@string/findDoctor"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/txtAccBal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:layout_gravity="center"
-        android:text="Account Balance: $xxx.xx" />
+        android:layout_marginTop="20dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -80,17 +79,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_button"
+            android:text="@string/txtPaymentHistory"
             android:textColor="#FFFFFF"
-            android:text="View Payment HIstory" />
+            style="?android:attr/borderlessButtonStyle"
+            />
 
         <Button
             android:id="@+id/btnMkPymt"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_button"
-            android:textColor="#FFFFFF"
+            android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
-            android:text="Make Payment" />
+            android:background="@drawable/bg_button"
+            android:text="@string/makePayment"
+            android:textColor="#FFFFFF" />
     </LinearLayout>
 
     <TextView
@@ -103,6 +106,7 @@
         android:textSize="20sp" />
 
     <ListView
+        android:id="@+id/listViewComments"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:entries="@array/CommentList" />

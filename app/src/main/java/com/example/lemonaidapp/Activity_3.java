@@ -27,8 +27,11 @@ public class Activity_3 extends AppCompatActivity {
 
         Button btnViewComplaints = findViewById(R.id.btnViewComplaint);
         Button btnEdit = findViewById(R.id.btnEdit);
+
         Intent intent = getIntent();
-        email = intent.getStringExtra("email");
+        if (intent!=null) {
+            email = intent.getStringExtra("email");
+        }
         emailEdit.setText(email);
         fNameEdit.setText(dbh.getdataStaff(email,1));
         lNameEdit.setText(dbh.getdataStaff(email,2));

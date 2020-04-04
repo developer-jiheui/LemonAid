@@ -54,7 +54,7 @@ public class Activity_15 extends AppCompatActivity {
         btnPayNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dbh.updateAmountOwed(email);
+
                 Intent i = new Intent(Activity_15.this,Activity_14.class);
                 i.putExtra("email",email);
                 startActivity(i);

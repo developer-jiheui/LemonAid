@@ -31,6 +31,7 @@ import java.util.List;
 public class Activity_3actual extends ListActivity {
     DatabaseHelper dbh;
     ArrayList<String> messageList;
+    ArrayList<String> dispMessageList = new ArrayList<String>();
     String email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,16 +39,22 @@ public class Activity_3actual extends ListActivity {
         //setContentView(R.layout.activity_main);
         this.setTitle("Active Messages!");
         dbh = new DatabaseHelper(this);
-        dbh.addrecordComment("em","email","I am dying","");
-        dbh.addrecordComment("em","email1233","I am dying20","zxzxz");
-        dbh.addrecordComment("em","emaildfd","I am dying30","");
+
         Intent i = getIntent();
         email = i.getStringExtra("email");
+        messageList = dbh.getActiveMessages(email);
+        for (int ind=0; ind<messageList.size();ind++){
+            if (messageList.get(ind).length()>70) {
+                dispMessageList.add(messageList.get(ind).substring(0, 70) + "...");
+            }
+            else
+            dispMessageList.add(messageList.get(ind));
+        }
         messageList = dbh.getActiveMessages(email);
 
         setListAdapter(new ArrayAdapter<String>
                 (this,R.layout.activity_3actual,R.id.message,
-                        messageList));
+                        dispMessageList));
     }
 
     public void onListItemClick(ListView l, View view, final int position, long id){
@@ -62,11 +69,12 @@ public class Activity_3actual extends ListActivity {
         alertDialogBuilder.setView(et);
 
         // set dialog message
-        alertDialogBuilder.setCancelable(false).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        alertDialogBuilder.setCancelable(false).setPositiveButton("Send Message", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 if (!et.getText().toString().equals("")){
                     dbh.updateDoctorReply(email,et.getText().toString());
                     messageList.remove(position);
+                    dispMessageList.remove(position);
                 }
                 else{
                     Toast.makeText(Activity_3actual.this,"Please Enter reply!", Toast.LENGTH_LONG).show();

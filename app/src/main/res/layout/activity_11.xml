@@ -1,106 +1,113 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginStart="20dp"
     android:layout_marginTop="30dp"
     android:layout_marginEnd="20dp"
-    android:layout_marginStart="20dp"
     android:layout_marginBottom="20dp"
-    android:orientation="vertical"
     tools:context=".Activity_11">
 
     <TextView
         android:id="@+id/txtDoctorName"
+        android:layout_width="350dp"
+        android:layout_height="43dp"
         android:layout_marginTop="30dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:layout_marginBottom="10dp"
         android:text="@string/txtDoctorName"
-         />
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/txtClinicName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:layout_marginBottom="10dp"
-        android:text="@string/txtClinicName" />
+        android:layout_width="352dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/txtClinicName"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtDoctorName" />
 
     <TextView
         android:id="@+id/txtClinicAddress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:layout_marginBottom="10dp"
+        android:layout_width="352dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="11dp"
         android:text="@string/txtClinicAddress"
-        />
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtClinicName" />
 
     <TextView
         android:id="@+id/txtPostCode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:layout_marginBottom="10dp"
+        android:layout_width="350dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="10dp"
         android:text="@string/txtClinicPostCode"
-        />
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtClinicAddress" />
 
     <TextView
         android:id="@+id/txtCell"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:layout_marginBottom="10dp"
+        android:layout_width="350dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="10dp"
         android:text="@string/txtDoctorCell"
-         />
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtPostCode" />
 
     <TextView
         android:id="@+id/txtEmail"
+        android:layout_width="349dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/txtDoctorEmail"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtCell" />
+
+
+    <Button
+        android:id="@+id/btnBookAppoint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:textSize="24sp"
-        android:text="@string/txtDoctorEmail"
-        />
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginTop="61dp"
+        android:background="@drawable/bg_button"
+        android:text="@string/btnBookAppoint"
+        android:textColor="#ffffff"
+        android:textSize="16sp"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtEmail" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/btnOnlineHelp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
+        android:background="@drawable/bg_button"
+        android:text="@string/btnOnlineHelp"
+        android:textColor="#ffffff"
+        android:textSize="16sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/btnBookAppoint"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-        <Button
-            android:id="@+id/btnBookAppoint"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/btnBookAppoint"
-            android:background="@drawable/bg_button"
-            android:textColor="#ffffff"
-            android:textSize="16dp"
-            android:visibility="visible" />
-
-        <Button
-            android:id="@+id/btnOnlineHelp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/btnOnlineHelp"
-            android:background="@drawable/bg_button"
-            android:textColor="#ffffff"
-            android:layout_marginLeft="10dp"
-            android:textSize="16dp" />
-    </LinearLayout>
 
     <Button
         android:id="@+id/btnSearch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:layout_marginTop="30dp"
-        android:textColor="#ffffff"
         android:background="@drawable/bg_button"
         android:text="@string/btnSearch"
-        android:textSize="18sp" />
-</LinearLayout>
+        android:textColor="#ffffff"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnOnlineHelp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

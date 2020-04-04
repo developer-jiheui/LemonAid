@@ -21,9 +21,9 @@ public class Activity_5 extends AppCompatActivity {
         String username = null;
         Intent intent = getIntent();
         if(intent != null) {
-            username = intent.getStringExtra("Username");
+            username = intent.getStringExtra("email");
         }
-        TextView txtInfo = findViewById(R.id.txtUsernameInfo);
+        final TextView txtInfo = findViewById(R.id.txtUsernameInfo);
         //set username at top left of activity_5
         txtInfo.setText(username);
 
@@ -49,13 +49,13 @@ public class Activity_5 extends AppCompatActivity {
                 if(rdBtnPatient.isChecked()) {
                     Intent i = new Intent(Activity_5.this, Activity_8.class);
                     i.putExtra("userType", "Patient");
-                    i.putExtra("createdByAdmin", true);
-                    startActivity(new Intent(Activity_5.this, Activity_8.class));
+                    i.putExtra("isAdminC", "yes");
+                    startActivity(i);
                 }
                 else if(rdBtnDoctor.isChecked()){
                     Intent i = new Intent(Activity_5.this, Activity_7.class);
                     i.putExtra("userType", "Doctor");
-                    startActivity(new Intent(Activity_5.this, Activity_7.class));
+                    startActivity(i);
 
                 }
 
@@ -63,14 +63,16 @@ public class Activity_5 extends AppCompatActivity {
                     Intent i = new Intent(Activity_5.this, Activity_7.class);
                     i.putExtra("userType", "Admin");
                     startActivity(new Intent(Activity_5.this, Activity_7.class));
-                    startActivity(new Intent(Activity_5.this, Activity_7.class));
+                    startActivity(i);
                 }
-                else {
+                else if(rdBtnCachier.isChecked()) {
                     Intent i = new Intent(Activity_5.this, Activity_7.class);
                     i.putExtra("userType", "Cachier");
-                    startActivity(new Intent(Activity_5.this, Activity_7.class));
-                    startActivity(new Intent(Activity_5.this, Activity_7.class));
+                    startActivity(i);
                 }
+
+                else
+                    Toast.makeText(Activity_5.this, "no option selected", Toast.LENGTH_LONG).show();
 
             }
         });
@@ -79,7 +81,9 @@ public class Activity_5 extends AppCompatActivity {
         btnChAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Activity_5.this, Activity_6.class));
+                Intent i = new Intent(Activity_5.this, Activity_6.class);
+                i.putExtra("email", txtInfo.getText().toString());
+                startActivity(i);
             }
         });
 
