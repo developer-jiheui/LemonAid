@@ -26,14 +26,19 @@ public class Activity_2 extends AppCompatActivity {
 
         dbh.addrecordComment("em","email","I am dying","");
         dbh.addrecordComment("em","email1233","I am dying20","zxzxz");
-        dbh.addrecordComment("em","emaildfd","2020-03-29 10:38:59.849 29695-29728/com.example.lemonaidapp D/EGL_emulation: eglMakeCurrent: 0xec005300: ver 2 0 (tinfo 0xec0036a0)\n" +
-                "2020-03-29 10:38:59.884 29695-29728/com.example.lemonaidapp D/EGL_emulation: eglMakeCurrent: 0xec005300: ver 2 0 (tinfo 0xec0036a0)\n" +
-                "2020-03-29 10:38:59.909 29695-29728/com.example.lemonaidapp D/EGL_emulation: eglMakeCurrent: 0xec005300: ver 2 0 (tinfo 0xec0036a0)","");
+        dbh.addrecordComment("em","emaildfd","I am dying30","");
 
-
-        dbh.addrecordOffice("Vancouver", "BC","111 1st","V4f 3F5");
+        dbh.addrecordOffice("Canada","AB","111 1st Street","T6B 6B6");
+        dbh.addrecordOffice("Canada","AB","222 2nd Street","T7H 7H7");
+        dbh.addrecordOffice("Canada","BC","11 Douglas Street","V3L 2G5");
+        dbh.addrecordOffice("Canada","BC","22 College Street","V4G 1T6");
+        dbh.addrecordOffice("Canada","BC","33 Student Street","V7Y 8H0");
+        dbh.addrecordOffice("Canada","BC","44 CSIS Street","V6S 7Y4");
 
         dbh.addrecordLogin("email","111");
+        dbh.addrecordLogin("email12","12");
+        dbh.addrecordLogin("email123","123");
+        dbh.addrecordLogin("email1234","1234");
         dbh.addrecordLogin("em","0");
         dbh.addrecordLogin("Cashier","1");
         dbh.addrecordLogin("Fuller@gmail.com","111");
@@ -56,8 +61,9 @@ public class Activity_2 extends AppCompatActivity {
             public void onClick(View v) {
               //  userEmail = emailEdit.getText().toString();
               //  userPass = passEdit.getText().toString();
-                //Jiheui: I changed this to Activity8 (Patient Profile page)
-                Intent i = new Intent(Activity_2.this,Activity_8.class);
+                //Jiheui: I changed this to Activity1 (Patient Profile page)
+                Intent i = new Intent(Activity_2.this,Activity_1.class);
+                i.putExtra("isAdminC", "no");
              //   i.putExtra("email",userEmail);
               //  i.putExtra("password", userPass);
                 startActivity(i);

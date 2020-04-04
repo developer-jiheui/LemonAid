@@ -13,7 +13,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     final static String DATABASE_NAME = "lemonAidDB.db";
 
-    final static int DATABASE_VERSION = 28;
+    final static int DATABASE_VERSION = 29;
     final static String TABLE1_NAME = "Patient_table";
     final static String T1COL_1 = "user_Id";
     final static String T1COL_2 = "f_Name";
@@ -227,8 +227,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String[] selectionArgs = {String.valueOf(officeID)};
         Cursor cOf = db.rawQuery("select * from Office_table where " + T3COL_1 + " =?", selectionArgs);
         if (cOf.moveToFirst())
-            return (cOf.getString(cOf.getColumnIndex(T3COL_4)) +"\n" +cOf.getString(cOf.getColumnIndex(T3COL_2)) + "\n" + cOf.getString(cOf.getColumnIndex(T3COL_3)) +
-                    "\n" + cOf.getString(cOf.getColumnIndex(T3COL_5)));
+            return (cOf.getString(cOf.getColumnIndex(T3COL_4)) +", " +cOf.getString(cOf.getColumnIndex(T3COL_2)) + "\n" + cOf.getString(cOf.getColumnIndex(T3COL_3)) +
+                    ", " + cOf.getString(cOf.getColumnIndex(T3COL_5)));
         return "";
     }
     public ArrayList<Integer> getAllAmountOwed(String email){

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -47,7 +48,9 @@ public class Activity_5 extends AppCompatActivity {
 
             public void onClick(View v) {
                 if(rdBtnPatient.isChecked()) {
-                    Intent i = new Intent(Activity_5.this, Activity_8.class);
+                    Log.d("Activity5 try", "Clicked Button");
+
+                    Intent i = new Intent(Activity_5.this, Activity_1.class);
                     i.putExtra("userType", "Patient");
                     i.putExtra("isAdminC", "yes");
                     startActivity(i);
