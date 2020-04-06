@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Activity_9 extends AppCompatActivity {
 DatabaseHelper dbh;
@@ -42,13 +43,13 @@ DatabaseHelper dbh;
             @Override
             public void onClick(View v) {
                 Intent activity_8 = new Intent(Activity_9.this, Activity_8.class);
-                activity_8.putExtra("editRequest", true);
-                activity_8.putExtra("fName", dbh.getdataPatient(email, 1));
-                activity_8.putExtra("lName", dbh.getdataPatient(email, 2));
-                activity_8.putExtra("phone", dbh.getdataPatient(email, 3));
-                activity_8.putExtra("msp", dbh.getdataPatient(email, 4));
-                activity_8.putExtra("age", dbh.getdataPatient(email, 5));
-                activity_8.putExtra("postal", dbh.getdataPatient(email, 6));
+//                activity_8.putExtra("editRequest", true);
+//                activity_8.putExtra("fName", dbh.getdataPatient(email, 1));
+//                activity_8.putExtra("lName", dbh.getdataPatient(email, 2));
+//                activity_8.putExtra("phone", dbh.getdataPatient(email, 3));
+//                activity_8.putExtra("msp", dbh.getdataPatient(email, 4));
+//                activity_8.putExtra("age", dbh.getdataPatient(email, 5));
+//                activity_8.putExtra("postal", dbh.getdataPatient(email, 6));
                 activity_8.putExtra("email", email);
                 startActivity(activity_8);
             }
@@ -70,7 +71,8 @@ DatabaseHelper dbh;
         // amountOwe.setText("$" + dbh.getdataPatient(email,8));
 
 
-         if (dbh.getdataPatient(email,7).equals(true)){
+         if (dbh.getdataPatient(email,7).equals("yes")){
+
          AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(Activity_9.this);
 
 
@@ -85,6 +87,7 @@ DatabaseHelper dbh;
          public void onClick(DialogInterface dialog, int id) {
          String password = et.getText().toString();
          dbh.updatePassword(email,password);
+         dbh.updatePatientInfo(email, 7, "no");
          }
          });
 
@@ -97,7 +100,10 @@ DatabaseHelper dbh;
          btnFindDoc.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
-                 startActivity(new Intent(Activity_9.this, Activity_10.class));
+
+                 Intent intent = new Intent(Activity_9.this, Activity_10.class);
+                 intent.putExtra("email",email);
+                 startActivity(intent);
              }
          });
 

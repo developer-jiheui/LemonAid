@@ -21,54 +21,54 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txtClinicName"
+        android:id="@+id/txtOfficeStreet"
         android:layout_width="352dp"
         android:layout_height="42dp"
         android:layout_marginTop="10dp"
-        android:text="@string/txtClinicName"
+        android:text="@string/txtOfficeStreet"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtDoctorName" />
 
     <TextView
-        android:id="@+id/txtClinicAddress"
+        android:id="@+id/txtOfficeCity"
         android:layout_width="352dp"
         android:layout_height="46dp"
         android:layout_marginTop="11dp"
-        android:text="@string/txtClinicAddress"
+        android:text="@string/txtOfficeCity"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtClinicName" />
+        app:layout_constraintTop_toBottomOf="@+id/txtOfficeStreet" />
 
     <TextView
-        android:id="@+id/txtPostCode"
+        android:id="@+id/txtDocPostCode"
         android:layout_width="350dp"
         android:layout_height="43dp"
         android:layout_marginTop="10dp"
-        android:text="@string/txtClinicPostCode"
+        android:text="@string/txtOfficePostCode"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtClinicAddress" />
+        app:layout_constraintTop_toBottomOf="@+id/txtOfficeCity" />
 
     <TextView
-        android:id="@+id/txtCell"
+        android:id="@+id/txtDocCell"
         android:layout_width="350dp"
         android:layout_height="49dp"
         android:layout_marginTop="10dp"
         android:text="@string/txtDoctorCell"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPostCode" />
+        app:layout_constraintTop_toBottomOf="@+id/txtDocPostCode" />
 
     <TextView
-        android:id="@+id/txtEmail"
+        android:id="@+id/txtDocEmail"
         android:layout_width="349dp"
         android:layout_height="49dp"
         android:layout_marginTop="10dp"
         android:text="@string/txtDoctorEmail"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCell" />
+        app:layout_constraintTop_toBottomOf="@+id/txtDocCell" />
 
 
     <Button
@@ -84,7 +84,7 @@
         android:textSize="16sp"
         android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/txtDocEmail" />
 
     <Button
         android:id="@+id/btnOnlineHelp"

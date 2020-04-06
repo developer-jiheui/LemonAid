@@ -46,17 +46,18 @@ public class Activity_16 extends AppCompatActivity {
                 LocalDate localDate = LocalDate.now();
                 userMsgInput = patientMsg.getText().toString();
                 dbh.addrecordComment(docEmail,email,userMsgInput,"");
+
                 // add record of the transaction to the database ~Darya
                 dbh.addrecordTransaction(docEmail,(int)noMSPamt,email,localDate.toString());
 
                 // update the amount owing in the patient_table ~Darya
                 int amountOwingPrior = Integer.parseInt(dbh.getdataPatient(email,8));
-                int amountCurrent = amountOwingPrior + (int)noMSPamt;
-                dbh.updateAmountOwed(email,Integer.toString(amountCurrent));
+                payBalance = amountOwingPrior + (int)noMSPamt;
+                dbh.updateAmountOwed(email,Double.toString(payBalance));
 
                 //put this input to the database somehow
                 Intent i = new Intent(Activity_16.this,Activity_15.class);
-
+                i.putExtra("email",email);
                 startActivity(i);
             }
         });

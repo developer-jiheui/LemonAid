@@ -33,9 +33,9 @@
     <string name="btnPayNow">Make Payment Now</string>
     <string name="btnPayLater">Make Payment Later\n Return to Profile</string>
     <string name="txtDoctorName">Doctor\'s Name</string>
-    <string name="txtClinicName">Clinic Name</string>
-    <string name="txtClinicAddress">Street, City ,Province</string>
-    <string name="txtClinicPostCode">Postal Code</string>
+    <string name="txtOfficeStreet">Street</string>
+    <string name="txtOfficeCity">City ,Province</string>
+    <string name="txtOfficePostCode">Postal Code</string>
     <string name="txtDoctorCell">Phone Number</string>
     <string name="txtDoctorEmail">Email</string>
     <string name="btnBookAppoint">Book Appointment</string>
@@ -88,6 +88,7 @@
     <string name= "officeLocation"> Office Location</string>
     <string name="txtViewActive">View Complaints</string>
     <string name="txtMessageHistory">Message History</string>
+    <string name="btnSearchDoctor">Find</string>
 
     <!--Activity_5-->
     <string name="LoggedInAs">Logged In As</string>

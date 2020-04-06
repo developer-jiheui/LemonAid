@@ -82,6 +82,7 @@ public class Activity_6 extends AppCompatActivity {
                                 i.putExtra("officeID", officeID);
                                 i.putExtra("email", email);
                                 i.putExtra("editRequest", true);
+                                i.putExtra("adminEdit", true);
 
                                 startActivity(i);
                             }
@@ -110,6 +111,7 @@ public class Activity_6 extends AppCompatActivity {
                                 i.putExtra("email", email);
                                 i.putExtra("isAdminC", "yes");
                                 i.putExtra("editRequest", true);
+                                i.putExtra("adminEdit", true);
 
                                 startActivity(i);
                             }

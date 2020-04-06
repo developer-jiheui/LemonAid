@@ -15,6 +15,7 @@ import java.util.ArrayList;
 public class Activity_15 extends AppCompatActivity {
     DatabaseHelper dbh;
     double payBalance;
+    String email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,19 +23,16 @@ public class Activity_15 extends AppCompatActivity {
 
         dbh = new DatabaseHelper(this);
         Intent i = getIntent();
+        email = i.getStringExtra("email");
 
-        final String email = i.getStringExtra("email");
         final TextView totalBalance = findViewById(R.id.txtNewBalance);
 
         Button btnPatientProfile = findViewById(R.id.btnPayLater);
         Button btnPayNow = findViewById(R.id.btnPayNow);
 
 
-        ArrayList<Integer> listOfCharges = dbh.getAllAmountOwed(email);
+        payBalance = Double.parseDouble(dbh.getdataPatient(email,8));
 
-        for (int index = 0; index<listOfCharges.size();index++){
-            payBalance += listOfCharges.get(index);
-        }
         totalBalance.setText("New Account Balance/n : $, " + payBalance);
 
 

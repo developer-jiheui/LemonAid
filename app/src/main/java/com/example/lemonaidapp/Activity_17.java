@@ -12,6 +12,8 @@ import android.widget.TextView;
 public class Activity_17 extends AppCompatActivity {
     DatabaseHelper dbh;
     String userMsgInput;
+    String email;
+    String docEmail;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,8 +22,8 @@ public class Activity_17 extends AppCompatActivity {
 
         dbh = new DatabaseHelper(this);
         Intent i = getIntent();
-        final String email = i.getStringExtra("email");
-        final String docEmail = i.getStringExtra("docEmail");
+        email = i.getStringExtra("email");
+        docEmail = i.getStringExtra("docEmail");
 
         final EditText patientMsg = findViewById(R.id.editComplaint);
         Button btnPatientMsg = findViewById(R.id.btnSubmitComplaint);
@@ -35,7 +37,7 @@ public class Activity_17 extends AppCompatActivity {
 
                 //put this input to the database somehow
                 Intent i = new Intent(Activity_17.this,Activity_18.class);
-
+                i.putExtra("email",email);
 
                 startActivity(i);
             }

@@ -23,6 +23,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginBottom="522dp"
         android:text="@string/txtLocation"
+        android:clickable="true"
         android:textSize="24sp" />
 
     <TextView
@@ -55,14 +56,22 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginBottom="375dp"
-        android:gravity="center"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="60dp"
+        android:layout_marginBottom="376dp"
         android:hint="@string/etPostalHint"
         android:inputType="textPostalAddress"
         tools:ignore="autofill" />
+
+    <Button
+        android:id="@+id/btnSearchDr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="250dp"
+        android:layout_marginBottom="375dp"
+        android:text="@string/btnSearchDoctor" />
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/txtDrNear"

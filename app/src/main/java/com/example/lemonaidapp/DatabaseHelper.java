@@ -13,7 +13,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     final static String DATABASE_NAME = "lemonAidDB.db";
 
-    final static int DATABASE_VERSION = 28;
+    final static int DATABASE_VERSION = 36;
     final static String TABLE1_NAME = "Patient_table";
     final static String T1COL_1 = "user_Id";
     final static String T1COL_2 = "f_Name";
@@ -227,8 +227,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String[] selectionArgs = {String.valueOf(officeID)};
         Cursor cOf = db.rawQuery("select * from Office_table where " + T3COL_1 + " =?", selectionArgs);
         if (cOf.moveToFirst())
-            return (cOf.getString(cOf.getColumnIndex(T3COL_4)) +"\n" +cOf.getString(cOf.getColumnIndex(T3COL_2)) + "\n" + cOf.getString(cOf.getColumnIndex(T3COL_3)) +
-                    "\n" + cOf.getString(cOf.getColumnIndex(T3COL_5)));
+            return (cOf.getString(cOf.getColumnIndex(T3COL_4)) +", " +cOf.getString(cOf.getColumnIndex(T3COL_2)) + "\n" + cOf.getString(cOf.getColumnIndex(T3COL_3)) +
+                    ", " + cOf.getString(cOf.getColumnIndex(T3COL_5)));
         return "";
     }
     public ArrayList<Integer> getAllAmountOwed(String email){
@@ -492,6 +492,55 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return false;
     }
 
+    //Cursors for Activity_10
+        //method that gets list of doctors with offices in specific location
+    public ArrayList<String> getListDoctors (String officeID, ArrayList<String> listOfDoctors){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String [] selectionArgs = {String.valueOf(officeID)};
+        Cursor cDoctors = db.rawQuery("SELECT * FROM Staff_Table WHERE " + T2COL_7+ " =?",selectionArgs);
+        while (cDoctors.moveToNext()) {
+            listOfDoctors.add(cDoctors.getString(cDoctors.getColumnIndex(T2COL_2))+" " + cDoctors.getString(cDoctors.getColumnIndex(T2COL_3)) + " " + cDoctors.getString(cDoctors.getColumnIndex(T2COL_4)));
+        }
+        return listOfDoctors;
+
+    }
+        //method to get officeIds used in finding doctors based on postal code
+    public ArrayList<String> getOfficeIDs (String letter) {
+        ArrayList<String> listOfID = new ArrayList<String>();
+        SQLiteDatabase db = this.getWritableDatabase();
+        String[] selectionArgs ={String.valueOf(letter)};
+        Cursor c = db.rawQuery("select office_Id from Office_table where substr(postal_Code,1,1) =?",selectionArgs);
+
+        while(c.moveToNext()){
+            listOfID.add(c.getString(c.getColumnIndex("office_Id")));
+        }
+        return listOfID;
+    }
+        //method to get the office data for a staff
+    public String getOfficeData(String officeID, int i) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String[] selectionArgs = {String.valueOf(officeID)};
+
+        Cursor c = db.rawQuery("select * from Office_table where " + T3COL_1 + " =?", selectionArgs);
+        if (c.moveToFirst()) {
+            if (i == 1) {
+                return c.getString(c.getColumnIndex(T3COL_1));
+            }
+            if (i == 2) {
+                return c.getString(c.getColumnIndex(T3COL_2));
+            }
+            if (i == 3) {
+                return c.getString(c.getColumnIndex(T3COL_3));
+            }
+            if (i == 4) {
+                return c.getString(c.getColumnIndex(T3COL_4));
+            }
+            if (i ==5){
+                return c.getString(c.getColumnIndex(T3COL_5));
+            }
+        }
+        return "";
+    }
 
 }
 
